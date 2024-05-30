@@ -27,7 +27,7 @@ const rest = new REST().setToken(process.env.DISCORD_TOKEN);
     console.log(`Started refreshing ${commands.length} Application (/) Commands.`);
 
     const data = await rest.put(
-      Routes.applicationCommands(process.env.CLIENT_ID),
+      Routes.applicationCommands(process.env.CLIENT_ID), // if you want commands to be registered **ONLY** in a specific guild, replace this line with: Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
       { body: commands }
     );
 
